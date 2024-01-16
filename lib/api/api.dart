@@ -11,8 +11,8 @@ class Api {
   static const _upcomingUrl =
       'https://api.themoviedb.org/3/movie/upcoming?api_key=${Constants.apiKey}';
 
-  static const _addfavourite =
-      'https://api.themoviedb.org/3/account/20911037/favorite?api_key=${Constants.apiKey}';
+  // static const _addfavourite =
+  //     'https://api.themoviedb.org/3/account/20911037/favorite?api_key=${Constants.apiKey}';
 
   // get data for _trendingUrl//
   Future<List<Movie>> getTrendingmovies() async {
@@ -50,17 +50,17 @@ class Api {
     }
   }
 
-  Future<List<Movie>> postData(Map<String, dynamic> data) async {
-    final response = await http
-        .post(Uri.parse(_addfavourite), body: jsonEncode(data), headers: {
-      'Content-Type': 'application/json',
-    });
-    if (response.statusCode == 201) {
-      final decodedData = json.decode(response.body)['results'] as List;
-      print(decodedData);
-      return decodedData.map((movie) => Movie.fromJson(movie)).toList();
-    } else {
-      throw Exception('Failed to perform Post request');
-    }
-  }
+  // Future<List<Movie>> postData(Map<String, dynamic> data) async {
+  //   final response = await http
+  //       .post(Uri.parse(_addfavourite), body: jsonEncode(data), headers: {
+  //     'Content-Type': 'application/json',
+  //   });
+  //   if (response.statusCode == 201) {
+  //     final decodedData = json.decode(response.body)['results'] as List;
+  //     print(decodedData);
+  //     return decodedData.map((movie) => Movie.fromJson(movie)).toList();
+  //   } else {
+  //     throw Exception('Failed to perform Post request');
+  //   }
+  // }
 }

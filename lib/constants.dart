@@ -3,6 +3,5 @@ class Constants {
   static const imagePath = 'https://image.tmdb.org/t/p/w500';
 }
 
-class Login {
-  static const apiUrl = 'https://reqres.in/';
-}
+
+  const String apiUrl = 'https://developer.themoviedb.org/';

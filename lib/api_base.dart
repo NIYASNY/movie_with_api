@@ -3,9 +3,10 @@ import 'package:http/http.dart' as http;
 import 'package:movie_app_with_api/constants.dart';
 
 class apibase {
-  Future<dynamic> postLogin(dynamic body) async {
-    final response = await http.post(Uri.parse(Login.apiUrl), body: body);
+  Future<dynamic> postLogin(String url, dynamic body) async {
+    final response = await http.post(Uri.parse(apiUrl + url), body: body);
     var responseJson = _returnResponse(response);
+    print(responseJson);
     return responseJson;
   }
 }

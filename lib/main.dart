@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_with_api/home_screen.dart';
+import 'package:movie_app_with_api/reposetory/repo_auth.dart';
 
 void main() {
-  runApp(
-    const MyApp());
+  runApp(const MyApp());
+
+  AuthRepo authRepo = AuthRepo();
+  authRepo.login("eve.holt@reqres.in", "cityslicka");
 }
 
 class MyApp extends StatelessWidget {
@@ -12,12 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'FlickHub',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Color(0xFF23272E),
-        useMaterial3: true,
-      ),
-      home: HomeScreen());
+        debugShowCheckedModeBanner: false,
+        title: 'FlickHub',
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: Color(0xFF23272E),
+          useMaterial3: true,
+        ),
+        home: HomeScreen());
   }
 }

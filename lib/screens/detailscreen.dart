@@ -57,20 +57,20 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       TextButton(
                           onPressed: () async {
-                            try {
-                              Map<String, dynamic> postData = {
+                          //   try {
+                          //     Map<String, dynamic> postData = {
                                
-                              };
-                              await Api().postData(postData);
-                            } catch (e) {
-                              print('error; $e');
-                            }
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Favourite(),
-                                ));
-                          },
+                          //     };
+                          //     await Api().postData(postData);
+                          //   } catch (e) {
+                          //     print('error; $e');
+                          //   }
+                          //   Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //         builder: (context) => Favourite(),
+                          //       ));
+                           },
                           child: Icon(Icons.favorite))
                     ],
                   ),
