@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_moviedb/api/api.dart';
-import 'package:flutter_moviedb/movie.dart';
-import 'package:flutter_moviedb/widgets/movie_slider.dart';
-import 'package:flutter_moviedb/widgets/trending_slidart.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie_app_with_api/api/api.dart';
+import 'package:movie_app_with_api/movie.dart';
+import 'package:movie_app_with_api/widgets/movieslider.dart';
+import 'package:movie_app_with_api/widgets/trendingslider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
