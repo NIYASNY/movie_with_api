@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Color(0xFF23272E),
           useMaterial3: true,
         ),
-        home: SplashScreen()),
+        home: HomeScreen()),
     );
   }
 }
