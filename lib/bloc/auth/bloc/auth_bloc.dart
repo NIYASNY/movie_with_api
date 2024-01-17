@@ -1,16 +1,25 @@
-// import 'package:bloc/bloc.dart';
-// import 'package:equatable/equatable.dart';
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:movie_app_with_api/reposetory/repo_auth.dart';
 
-// part 'auth_event.dart';
-// part 'auth_state.dart';
+part 'auth_event.dart';
+part 'auth_state.dart';
 
-// class AuthBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
-//   AuthBloc() : super(AuthenticationAuthenticated()) {
-//     on<AuthenticationEvent>((event, emit) {
-//       // TODO: implement event handler
-//     });
-//   }
-// }
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  final AuthRepo _authRepo;
+  AuthBloc(this._authRepo) : super(AuthInitial()) {
+    on<Loginevent>((event, emit) async {
+      emit(AuthLoading());
+      final result = await _authRepo.login(event.email, event.password);
+      if (result != "Missing password" || result != "User not found") {
+        emit(AutSuccessfull());
+      } else if (result == "Missing Password" || result != "User not found") {
+        emit(AuthError("Missing Password Or user not found"));
+      }
+    });
+  }
+}
 
 // import 'dart:async';
 // import 'dart:convert';
@@ -82,3 +91,5 @@
 //   }
 
 // }
+
+
