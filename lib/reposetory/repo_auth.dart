@@ -1,7 +1,7 @@
 import 'package:movie_app_with_api/api_base.dart';
 
 class AuthRepo {
-  final String _apikey = 'https://api.themoviedb.org/3/authentication/token/validate_with_login';
+  final String _apikey = '';
   final apibase _apibase = apibase();
 
   Future<dynamic> login(String? email, String? password) async {

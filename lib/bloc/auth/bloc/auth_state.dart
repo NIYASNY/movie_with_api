@@ -1,14 +1,35 @@
-part of 'auth_bloc.dart';
+// part of 'auth_bloc.dart';
 
-abstract class AuthenticationState extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+// @immutable
+// abstract class AuthState {
+//   static error(String ?e){
+//     log(e??"gfd");
+//   }
+// }
+ 
+//  abstract class AuthActionState extends AuthState{} 
 
- class AuthenticationUninitialized extends AuthenticationState {}
+// final class AuthInitial extends AuthState {}
 
-  class AuthenticationAuthenticated extends AuthenticationState {}
+// class AuthErrorstate extends  AuthActionState{}
 
-   class AuthenticationunAuthenticated extends AuthenticationState {}
+// class LoginSuccessState extends AuthActionState{}
 
-    class AuthenticationLoading extends AuthenticationState {}
+// class SignScreenActionState extends AuthActionState{}
+
+// class ForgotActionState  extends AuthActionState{}
+
+// class EmailValidationErrorState extends AuthState {
+//   final String errorMessage;
+//   EmailValidationErrorState(this.errorMessage);
+// }
+
+// class PasswordValidationErrorState extends AuthState {
+//   final String errorMessage;
+//   PasswordValidationErrorState(this.errorMessage);
+// }
+
+// class ServerErrorState extends AuthState {
+//   final String errorMessage;
+//   ServerErrorState(this.errorMessage);
+// }
