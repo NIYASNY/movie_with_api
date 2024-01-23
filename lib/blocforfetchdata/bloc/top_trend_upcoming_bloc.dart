@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/physics.dart';
 import 'package:movie_app_with_api/api/api.dart';
 import 'package:movie_app_with_api/movie.dart';
 
@@ -12,7 +11,6 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   MovieBloc(this.api) : super(MovieInitial());
 
-  @override
   Stream<MovieState> mapEventToState(MovieEvent event) async* {
     try {
       if (event is FetchTrendingMovies) {

@@ -3,4 +3,4 @@ class Constants {
   static const imagePath = 'https://image.tmdb.org/t/p/w500';
 }
 
-const String apiUrl = 'https://reqres.in';
+

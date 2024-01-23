@@ -14,17 +14,37 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
+  int currentpage = 1;
 
+  final ScrollController _scrollController = ScrollController();
   late Future<List<Movie>> trendingMovies;
   late Future<List<Movie>> topratedMovies;
   late Future<List<Movie>> upcomingMovies;
 
   @override
+  void dispose() {
+    _scrollController;
+    super.dispose();
+  }
+
+  @override
   void initState() {
+    _scrollController.addListener(_scrollListener);
     trendingMovies = Api().getTrendingmovies();
     topratedMovies = Api().getTopRatedMovies();
     upcomingMovies = Api().getupcomingMovies();
     super.initState();
+  }
+
+  void _scrollListener() {
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      _loadMoreData();
+    }
+  }
+
+  Future <void> _loadMoreData() async{
+    currentpage++;
   }
 
   @override
@@ -179,88 +199,88 @@ class _HomeScreenState extends State<HomeScreen> {
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
             )),
-            child: Row( 
-          mainAxisAlignment: MainAxisAlignment.spaceAround, 
-          children: [ 
-            IconButton( 
-              enableFeedback: false, 
-              onPressed: () { 
-                setState(() { 
-                  pageIndex = 0; 
-                }); 
-              }, 
-              icon: pageIndex == 0 
-                  ? const Icon( 
-                      Icons.home_filled, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ) 
-                  : const Icon( 
-                      Icons.home_outlined, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ), 
-            ), 
-            IconButton( 
-              enableFeedback: false, 
-              onPressed: () { 
-                setState(() { 
-                  pageIndex = 1; 
-                }); 
-              }, 
-              icon: pageIndex == 1 
-                  ? const Icon( 
-                      Icons.work_rounded, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ) 
-                  : const Icon( 
-                      Icons.work_outline_outlined, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ), 
-            ), 
-            IconButton( 
-              enableFeedback: false, 
-              onPressed: () { 
-                setState(() { 
-                  pageIndex = 2; 
-                }); 
-              }, 
-              icon: pageIndex == 2 
-                  ? const Icon( 
-                      Icons.widgets_rounded, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ) 
-                  : const Icon( 
-                      Icons.widgets_outlined, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ), 
-            ), 
-            IconButton( 
-              enableFeedback: false, 
-              onPressed: () { 
-                setState(() { 
-                  pageIndex = 3; 
-                }); 
-              }, 
-              icon: pageIndex == 3 
-                  ? const Icon( 
-                      Icons.person, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ) 
-                  : const Icon( 
-                      Icons.person_outline, 
-                      color: Colors.white, 
-                      size: 35, 
-                    ), 
-            ), 
-          ], 
-        ), 
-      ), 
-    ); 
-  } 
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {
+                setState(() {
+                  pageIndex = 0;
+                });
+              },
+              icon: pageIndex == 0
+                  ? const Icon(
+                      Icons.home_filled,
+                      color: Colors.white,
+                      size: 35,
+                    )
+                  : const Icon(
+                      Icons.home_outlined,
+                      color: Colors.white,
+                      size: 35,
+                    ),
+            ),
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {
+                setState(() {
+                  pageIndex = 1;
+                });
+              },
+              icon: pageIndex == 1
+                  ? const Icon(
+                      Icons.work_rounded,
+                      color: Colors.white,
+                      size: 35,
+                    )
+                  : const Icon(
+                      Icons.work_outline_outlined,
+                      color: Colors.white,
+                      size: 35,
+                    ),
+            ),
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {
+                setState(() {
+                  pageIndex = 2;
+                });
+              },
+              icon: pageIndex == 2
+                  ? const Icon(
+                      Icons.widgets_rounded,
+                      color: Colors.white,
+                      size: 35,
+                    )
+                  : const Icon(
+                      Icons.widgets_outlined,
+                      color: Colors.white,
+                      size: 35,
+                    ),
+            ),
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {
+                setState(() {
+                  pageIndex = 3;
+                });
+              },
+              icon: pageIndex == 3
+                  ? const Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: 35,
+                    )
+                  : const Icon(
+                      Icons.person_outline,
+                      color: Colors.white,
+                      size: 35,
+                    ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

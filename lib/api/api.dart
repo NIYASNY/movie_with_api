@@ -5,7 +5,7 @@ import 'package:movie_app_with_api/movie.dart';
 
 class Api {
   static const _trendingUrl =
-      'https://api.themoviedb.org/3/trending/movie/day?api_key=${Constants.apiKey}';
+      'https://api.themoviedb.org/3/trending/movie/day?api_key=${Constants.apiKey}  ';
   static const _topratedUrl =
       'https://api.themoviedb.org/3/movie/top_rated?api_key=${Constants.apiKey}';
   static const _upcomingUrl =

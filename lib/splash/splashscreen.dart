@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_with_api/home_screen.dart';
-import 'package:movie_app_with_api/loginhome/loginhome.dart';
 
 
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 6), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const loginHome()),
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
     });
 
@@ -21,7 +20,7 @@ class SplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.network(
-                "https://cdn.dribbble.com/users/1820876/screenshots/5221678/preview.jpg?resize=400x300&vertical=center",
+                "https://cdn.dribbble.com/users/307142/screenshots/9688763/media/1b01786d6042938e5bbeb5bc4ef9a69e.gif",
                 width: 230,
                 height: 230,
               ),
