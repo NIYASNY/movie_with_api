@@ -1,8 +1,5 @@
 part of 'upcoming_bloc.dart';
 
-sealed class UpcomingEvent extends Equatable {
-  const UpcomingEvent();
+abstract class upcomingEvent {}
 
-  @override
-  List<Object> get props => [];
-}
+class FetchUpcomingMovies extends upcomingEvent {}

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_with_api/splash/splashscreen.dart';
 
 void main() {
@@ -11,18 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        // BlocProvider(create: (context) => AuthBloc(AuthRepo()))
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'FlickHub',
-        theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: Color(0xFF23272E),
-          useMaterial3: true,
-        ),
-        home: SplashScreen()),
-    );
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'FlickHub',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Color(0xFF23272E),
+        useMaterial3: true,
+      ),
+      home: SplashScreen());
   }
 }

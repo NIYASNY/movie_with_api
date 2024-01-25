@@ -1,10 +1,17 @@
 part of 'upcoming_bloc.dart';
 
-sealed class UpcomingState extends Equatable {
-  const UpcomingState();
-  
-  @override
-  List<Object> get props => [];
+abstract class UpcomingState {}
+
+class Upcominginitial extends UpcomingState {}
+
+class UpcomingLoaded extends UpcomingState {
+  final List<Movie> upcomingMovies;
+
+  UpcomingLoaded(this.upcomingMovies);
 }
 
-final class UpcomingInitial extends UpcomingState {}
+class UpcomingError extends UpcomingState {
+  final String errorMessage;
+
+  UpcomingError(this.errorMessage);
+}

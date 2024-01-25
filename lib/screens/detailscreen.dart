@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app_with_api/api/api.dart';
 import 'package:movie_app_with_api/constants.dart';
 import 'package:movie_app_with_api/movie.dart';
-import 'package:movie_app_with_api/screens/favourite.dart';
 import 'package:movie_app_with_api/widgets/back_button.dart';
 
 class DetailsScreen extends StatelessWidget {

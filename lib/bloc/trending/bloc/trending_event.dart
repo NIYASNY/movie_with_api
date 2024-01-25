@@ -1,8 +1,9 @@
 part of 'trending_bloc.dart';
 
-sealed class TrendingEvent extends Equatable {
-  const TrendingEvent();
-
-  @override
-  List<Object> get props => [];
+abstract class TrendingEvent {
+  // const TrendingEvent();
 }
+
+class FetchTrendingEvent extends TrendingEvent {}
+
+

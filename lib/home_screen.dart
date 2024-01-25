@@ -14,37 +14,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
-  int currentpage = 1;
-
-  final ScrollController _scrollController = ScrollController();
   late Future<List<Movie>> trendingMovies;
   late Future<List<Movie>> topratedMovies;
   late Future<List<Movie>> upcomingMovies;
 
-  @override
-  void dispose() {
-    _scrollController;
-    super.dispose();
-  }
+  final ScrollController _scrollController = ScrollController();
+
 
   @override
   void initState() {
-    _scrollController.addListener(_scrollListener);
     trendingMovies = Api().getTrendingmovies();
     topratedMovies = Api().getTopRatedMovies();
     upcomingMovies = Api().getupcomingMovies();
     super.initState();
-  }
-
-  void _scrollListener() {
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
-      _loadMoreData();
-    }
-  }
-
-  Future <void> _loadMoreData() async{
-    currentpage++;
   }
 
   @override
@@ -72,29 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                // Map<String, dynamic> Postdata = {};
-                // Api().postData();
-              },
-              child: Text('Perform POST Request'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Perform PUT Request'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Perform patch Request'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Perform DELETE Request'),
-            ),
           ],
         ),
       ),
       body: SingleChildScrollView(
+        controller: _scrollController,
         physics: BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
